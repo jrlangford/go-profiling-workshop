@@ -6,15 +6,13 @@ The objective of this workshop is to learn how to identify bottlenecks in go bin
 
 One of the tools Go provides for code profiling is its testing framework. A test or benchmark can be specifically compiled to be profiled.
 
-'When CPU profiling is enabled, the Go program stops about 100 times per second and records a sample consisting of the program counters on the currently executing goroutine's stack.'
-
-Read go's full [blog entry](http://blog.golang.org/profiling-go-programs) on profiling.
+'When CPU profiling is enabled, the Go program stops about 100 times per second and records a sample consisting of the program counters on the currently executing goroutine's stack.' (Read go's full [blog entry](http://blog.golang.org/profiling-go-programs) on profiling)
 
 The following example generates a CPU profile of one benchmark in this package and writes the output into the "prof" file.
 
 `go test -run=none -bench=BenchmarkLinearSortNoBuffer -cpuprofile=prof github.com/jrlangford/go-profiling-workshop`
 
-A memory profile can be generated too by substituting the -cpuprofile param for -memprofile
+A memory profile can be generated too by substituting the -cpuprofile param for -memprofile.
 
 ##PProf
 
@@ -38,3 +36,8 @@ Generates a graph in SVG format representing function calls and displays it in a
 
 ###weblist
 Displays the output of list in an interactive web page
+
+##Get started
+The `profile` script generates profile data for the benchmarks in this repo and launches the pprof interactive shell.
+
+Run `./profile 1` to start analyzing this package's performance.
